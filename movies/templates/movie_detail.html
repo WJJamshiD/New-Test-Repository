@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UzMovie.com | {{movie.title.upper}}</title>
+    </head>
+    <body>
+        <div style="display:flex; align-items: center; justify-content: space-evenly;">
+            <div style="250px">
+
+                <img src="{% if movie.banner %}{{movie.banner.url}}{% else %}https://kitobman.uz/staticfiles/assets/img/default_cover.png{% endif %}" width="250"/>
+                    <!--     banner.path ->  www.domain.name / 'media' + / + 'banners/phone_acrIKBJ.jpg'     -->
+            
+                <h1 style="text-align: center">{{movie.title}}</h1>
+                <p>{{movie.duration}} | {{movie.language}}</p>
+            </div>
+        </div>    
+    </body>
+</html>

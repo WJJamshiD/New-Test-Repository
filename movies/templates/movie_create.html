@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UzMovie.com | Add new movie</title>
+    </head>
+    <body>
+        <div style="display:flex; align-items: center; justify-content: space-evenly;">
+            <form style="widht:250px" method="post" action="/movies/create">
+                {% comment %} {{form}} {% endcomment %}
+                <label for="input1">Title</label>
+                <input type="text" name="title" required value="{{data.title}}"
+                    placeholder="Bu yerga kino nomini yozing.."
+                    style="width:100%; height:25px" id="input1"/>
+                {% if errors.title %}<small style="color:red">{{errors.title}}</small>{% endif %}
+                <br>
+                <br>
+
+                <label for="">Released year</label>
+                <input type="number" name="released_year" style="width:100%; height:25px"  value="{{data.released_year}}"/>
+                {% if errors.released_year %}<small style="color:red">{{errors.released_year}}</small>{% endif %}
+                <br>
+                <br>
+
+                <label>Language</label>
+                <input type="text" required name="language"
+                    value="{{data.language}}"
+                    style="width:100%; height:25px"/>
+                <br>
+                <br>
+
+                <label>Duration</label>
+                <input type="text" name="duration" value="{{data.duration}}" style="width:100%; height:25px"/>
+                {% if errors.duration %}<small style="color:red">{{errors.duration}}</small>{% endif %}
+                <br>
+                <br>
+
+                <label>Source Link</label>
+                <input type="text" required 
+                    value="{{data.source_link}}" name="source_link" style="width:100%; height:25px"/>
+                <br>
+                <br>
+
+                <label>Type</label>
+                <select name="type" required style="width:100%; height:30px">
+                    <option value="MOVIE">Kinofilm</option>
+                    <option value="TRAILER">Treyler</option>
+                    <option value="SHOW">Shou</option>
+                    <option value="SERIES">Serial</option>
+                </select>
+                {% if errors.type %}<small style="color:red">{{errors.type}}</small>{% endif %}
+                <br>
+                <br>
+
+                <label>Banner</label>
+                <input type="file" value="{{data.type}}" name="banner" style="width:100%; height:25px"/>
+                <br>
+                <br>
+                
+                {% csrf_token %}
+                <label>Slug</label>
+                <input type="text" value="{{data.slug}}" name="slug" style="width:100%; height:25px"/>
+                <br>
+                <br>
+
+                <input type="submit" value="Yuborish" style="width:100%;height:30px; background:blue;color:white;"/>
+            </form>
+                
+        </div>    
+    </body>
+</html>
